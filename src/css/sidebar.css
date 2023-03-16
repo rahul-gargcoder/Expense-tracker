@@ -1,10 +1,9 @@
 .sidebar-container{
     color: white;
-    height: 96vh;
+    height: 100%;
     width: 250px;
     background: var(--col1);
     font-size: 1rem;
-    margin: 2vh;
     padding: 0px 20px;
     border-radius: 20px;
     font-family: 'poppins',sans-serif;
