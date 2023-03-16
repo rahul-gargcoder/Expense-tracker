@@ -1,0 +1,23 @@
+:root{
+  --boxShadow : 10px 10px 15px -3px rgba(0,0,0,0.1);
+  --col1: #0f0f0f;
+  --col2: #5cbd7b;
+  --col3: #e35933;
+  --col4: #FFFFE8;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+
+
+
+

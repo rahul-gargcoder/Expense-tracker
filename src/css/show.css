@@ -1,0 +1,33 @@
+.show-container{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.curr-amount{
+    margin: 10px;
+    text-align: center;
+}
+
+.curr-amount .both{
+    border: 1px solid green;
+    display: flex;
+    min-width: 300px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+
+.curr-amount .both .income,
+.curr-amount .both .expense{
+    box-shadow: var(--boxShadow);
+    border: 1px solid #e0e0e0;
+    min-width: 120px;
+    text-align:center;
+    min-height: 80px;
+    padding-top:10px; 
+    margin: 4px;
+}
+
