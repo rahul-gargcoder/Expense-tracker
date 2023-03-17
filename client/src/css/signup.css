@@ -1,0 +1,102 @@
+body{
+    margin:0;
+    background-color: black;
+    color: #ffffff;
+    }
+    #containersignup{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        border-radius: 2px;
+        background-color: #1f1f1f;
+        min-height: 460px;
+        height: auto;
+        /* max-width: 500px;
+        min-width: 200px; */
+        width: 500px;
+        margin-top: 4%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    #container{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        border-radius: 2px;
+        background-color: #1f1f1f;
+        min-height: 350px;
+        height: auto;
+        /* max-width: 500px;
+        min-width: 200px; */
+        width: 500px;
+        margin-top: 10%;
+        padding: 20px;
+        border-radius: 20px;
+        /* background-image: url('bg.jpg'); */
+    }
+    #container h3{
+       display: flex;
+       justify-content: center;
+       text-align: center;
+       margin-top: 20px;
+       font-size: 40px;
+       color: white;
+    }
+    #containersignup h3{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 40px;
+        color: white;
+     }
+    input{
+        margin:5px 0px 10px 0px;
+        border: 0px;
+        border-radius: 20px;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        color: solid black;
+        font-size: 10px;
+        font-style:normal;
+        font-weight: 200;
+    }
+    input:focus{
+        background-color: rgb(255, 255, 255);
+    }
+    button {
+        color: #464242;
+        background: #F3F3F3;
+        border: 1px #DADADA solid;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 9pt;
+        outline: none;
+        height: 40px;
+        width: 100px;
+    }
+    
+    button:hover {
+        border: 3px #000000 solid;
+        box-shadow: 1px 1px 1px #EAEAEA;
+        color: black;
+        background: #F7F7F7;
+    }
+    hr{
+        color: white;
+        height: 2px;
+        background-color: white;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+        
+       
+    }
