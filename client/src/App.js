@@ -4,6 +4,7 @@ import {Routes,Route, BrowserRouter} from 'react-router-dom'
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Main from './components/Main';
+import Logout from './components/Logout';
 import Protectroute from './Protectroutes/Checkall'
 import Protectauth from './Protectroutes/Checkauth'
 import { Layout } from './components/Layout';
@@ -28,7 +29,8 @@ function App() {
     
     <Route path='/signup' element={<Protectauth><Signup/></Protectauth>}/>
     <Route path='/login' element={<Protectauth><Login/></Protectauth>}/>
-   
+    <Route pth='/logout' element={<Logout/>}/>
+    {/* <Route path='/login' element={<Login/>}/> */}
    </Routes>
    </BrowserRouter>
    </div>
