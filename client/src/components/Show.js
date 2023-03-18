@@ -7,16 +7,16 @@ function Show() {
             <h2 className='heading'>Expense Tracker</h2>
             <div className="curr-amount">
                 <h2>CURRENT BALANCE</h2>
-                <h1>Rs 400</h1>
+                <h1>Rs <span>400</span></h1>
             </div>
             <div className='both'>
                 <div className="income">
                     <h3>INCOME</h3>
-                    <h1>Rs 600</h1>
+                    <h1>Rs <span>400</span></h1>
                 </div>
                 <div className="expense">
                     <h3>EXPENSES</h3>
-                    <h1>Rs 200</h1>
+                    <h1>Rs <span>400</span></h1>
                 </div>
             </div>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
 import '../css/signup.css'
 import swal from 'sweetalert';
 import axios from 'axios'
@@ -15,10 +16,20 @@ function Login(){
         }).catch((err)=>{
             swal(err.message)
         })
-        console.log(res.data.flag);
         if(res.data.flag){
-           
-            return navigate('/')
+            swal({
+                title:res.data.info,
+                icon: "success"
+              });
+            localStorage.setItem('islogged',res.data.flag)
+            localStorage.setItem('userdata',res.data.detail)
+             navigate('/')
+        }
+        else{
+            swal({
+                title:res.data.info,
+                icon: "error"
+              });
         }
     }
   return (
