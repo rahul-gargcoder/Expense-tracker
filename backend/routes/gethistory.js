@@ -9,7 +9,6 @@ gethistory
 async function getdetails(req,res){
     try {
         const {userid,date}=req.body;
-        console.log(typeof(date));
         const result=await userhistory.findOne({userid});
         if(!result){
             return res.json({

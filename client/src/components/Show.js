@@ -13,7 +13,7 @@ function Show() {
     // if()
     // console.log(document.getElementById('amount'));
     // console.log(document.getElementById('amount').value);
-    var am=0;
+    var am=-1;
     var flag=false;
     var de='';
     const navigate=useNavigate();
@@ -30,7 +30,12 @@ function Show() {
         var amount = Number(document.getElementById('amount').value);
         var detail = document.getElementById('info').value;
         console.log(amount);
-
+        if(detail===''){
+            return swal({
+                title:'Enter the name of Transaction❗❗❗',
+                icon:'info'
+            })
+        }
         if(amount >=0 ){
             am=amount;
             flag=true;
@@ -43,19 +48,32 @@ function Show() {
             setExpense(expense-amount);
             de=detail;
         }
+        if(am===0){
+            return swal({
+                title:'Enter valid amount of transaction❗❗❗',
+                icon:'info'
+            })
+        }
         const axioscall=async ()=>{
             let alldate=new Date();
-            let date=alldate.getDay()+'-'+alldate.getMonth()+'-'+alldate.getFullYear();
+            let month=alldate.getMonth()+1;
+            let date=alldate.getDate()+'-'+month+'-'+alldate.getFullYear();
             await axios.post('http://localhost:5000/addtransaction',{
                 date:date,
                 amount:am,
                 flag:flag,
                 detail:de,
                 userdata:localStorage.getItem('userdata')
+            }).catch((err)=>{
+                swal({
+                    title:'getting error from server',
+                    icon:'error'
+                })
             })
             if(date){
                 swal({
-                    title:'yes'
+                    title:'Transaction added successfully🎉🎉🎉',
+                    icon:'success'
                 })
             }
         }
@@ -63,12 +81,36 @@ function Show() {
     }
 
     useEffect(() => {
-        
-        
-       
+
+        const findbalance=async ()=>{
+            var result=await axios.post('http://localhost:5000/getdata',{
+                id:localStorage.getItem('userdata')
+            }).catch((err)=>{
+                swal({
+                    title:'getting error from server',
+                    icon:'error'
+                })
+            })
+            result=result.data.data
+            let inc=0;
+            let exp=0;
+            let bal=0;
+            for(let i=0;i<result.length;i++){
+                for(let j=0;j<result[i].list.length;j++){
+                    let data=result[i].list[j].amount;
+                    if(data<0){
+                        exp+=data
+                    }
+                    else{
+                        inc+=data
+                    }
+                }
+            }
+            setIncome(inc);
+            setExpense(-1*exp);
+        }
+        findbalance()
         setBalance(income-expense);
-    
-     
     }, [{
         income,expense
     }])

@@ -22,7 +22,8 @@ async function addingtransaction(req,res){
             })       
         }
         for(let i=0;i<result.history.length;i++){
-            if(result.history[i].date===date){
+            var datefromdb=result.history[i].date;
+            if(datefromdb===date){
                 result.history[i].list.push({tname:detail,amount,flag});
                 await userhistory.findOneAndUpdate({userid:userdata},{history:result.history})
                 return res.status(200).json({

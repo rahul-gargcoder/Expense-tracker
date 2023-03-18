@@ -9,12 +9,12 @@ changename
 async function changeusername(req,res){
     try {
         const {userid,name}=req.body;
-        await usermodel.findOneAndUpdate({userid},{name});
+        await usermodel.findOneAndUpdate({_id:userid},{name});
         res.status(200).json({
             info:'Updated Successfully🎉🎉🎉'
         })
     } catch (error) {
-        res.status.json({
+        res.status(404).json({
             info:error.message
         })
     }

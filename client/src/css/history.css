@@ -29,6 +29,7 @@
     border-radius: 10px;
     outline: none;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .hist-container .items{
