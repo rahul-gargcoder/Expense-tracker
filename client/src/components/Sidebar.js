@@ -29,7 +29,7 @@ function Sidebar() {
                 <i class="bi bi-gear"></i>
                 <h3>Settings</h3>
             </a>
-            <a href="">
+            <a href="/logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <h3>Logout</h3>
             </a>

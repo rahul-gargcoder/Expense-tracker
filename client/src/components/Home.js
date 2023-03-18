@@ -16,7 +16,7 @@ function Home() {
 
         {/* <Show></Show> */}
         {/* <History></History> */}
-        <Stats></Stats>
+        {/* <Stats></Stats> */}
         
 
 
