@@ -1,31 +1,71 @@
 import React,{useEffect, useState} from 'react'
 import '../css/show.css'
 import bg from '../assets/bg1.svg'
-
+import axios from 'axios'
+import swal from 'sweetalert'
+import { useNavigate } from 'react-router-dom'
 function Show() {
 
     const [balance,setBalance] = useState(0);
     const [income,setIncome] = useState(0);
     const [expense,setExpense] = useState(0);
-
+    // amount=0
+    // if()
+    // console.log(document.getElementById('amount'));
+    // console.log(document.getElementById('amount').value);
+    var am=0;
+    var flag=false;
+    var de='';
+    const navigate=useNavigate();
     const handleSubmit=()=>{
-        let detail = document.getElementById('info').value;
-        let amount = Number(document.getElementById('amount').value);
-        
+        if(!localStorage.getItem('userdata')){
+            swal({
+                title: 'Something went wrong',
+                text:'Please login again',
+                icon: "error",
+            });
+            localStorage.clear();
+            return navigate('/login');
+        }
+        var amount = Number(document.getElementById('amount').value);
+        var detail = document.getElementById('info').value;
         console.log(amount);
 
-        if(amount > 0 ){
+        if(amount >=0 ){
+            am=amount;
+            flag=true;
             setIncome(income+amount);
-            
+            de=detail;
         } 
         if(amount < 0 ){
+            am=amount;
+            flag=false;
             setExpense(expense-amount);
-            
+            de=detail;
         }
+        const axioscall=async ()=>{
+            let alldate=new Date();
+            let date=alldate.getDay()+'-'+alldate.getMonth()+'-'+alldate.getFullYear();
+            await axios.post('http://localhost:5000/addtransaction',{
+                date:date,
+                amount:am,
+                flag:flag,
+                detail:de,
+                userdata:localStorage.getItem('userdata')
+            })
+            if(date){
+                swal({
+                    title:'yes'
+                })
+            }
+        }
+        axioscall();
     }
 
     useEffect(() => {
-      
+        
+        
+       
         setBalance(income-expense);
     
      
