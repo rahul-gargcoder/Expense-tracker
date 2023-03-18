@@ -13,19 +13,19 @@ function Sidebar() {
         </div>
         <hr style={{margin:'8px 20px 40px 20px',backgroundColor:'#3f3f3f',height:'0.5px',border:'none'}} />
         <div className='nav-list'>
-            <a href="/home">
+            <a href="/">
                 <i class="bi bi-grid"></i>
                 <h3>Home</h3>
             </a>
-            <a href="">
+            <a href="/history">
                 <i class="bi bi-clock-history"></i>
                 <h3>History</h3>
             </a>
-            <a href="">
+            <a href="/stats">
                 <i class="bi bi-pie-chart-fill"></i>
                 <h3>Statistics</h3>
             </a>
-            <a href="">
+            <a href="/settings">
                 <i class="bi bi-gear"></i>
                 <h3>Settings</h3>
             </a>

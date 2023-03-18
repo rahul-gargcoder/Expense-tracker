@@ -48,7 +48,7 @@ function Signup(){
   }
   return (
     <>
-     <div id="containersignup">
+     <div id="authcontainer">
         <h3>Sign Up here</h3>
         <form onSubmit={handlesubmit}>
             <hr/>
@@ -58,7 +58,7 @@ function Signup(){
             <input type="password" placeholder="Enter password again" id="confirmpassword" required/>
             <hr/>
             <button type="submit" >Submit</button>
-            <h6>Have a account already.Login Now👇</h6>
+            <h6>Have a account already. Login Now👇</h6>
             <button><a href="/login">login</a></button>
         </form>
     </div>

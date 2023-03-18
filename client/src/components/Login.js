@@ -34,7 +34,7 @@ function Login(){
     }
   return (
     <>
-    <div id="container">
+    <div id="authcontainer">
         <h3>Login Here</h3>
         <form onSubmit={Handlesubmit}>
         <hr/>

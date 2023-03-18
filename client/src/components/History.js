@@ -1,10 +1,15 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import '../css/history.css'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 function History() {
 
+    const [selectedDate,setSelectedDate] = useState(new Date());
+   
+
    useEffect(() => {
-     
+     console.log(selectedDate.getFullYear())
     let itemArr = Array.from(document.getElementsByClassName('item'));
         
     itemArr.forEach((ele) => {
@@ -18,7 +23,7 @@ function History() {
         }
     })
     
-   }, [])
+   }, [selectedDate])
    
 
     
@@ -29,7 +34,31 @@ function History() {
 
   return (
     <div className='hist-container'>
-        <h2 className="heading" >History</h2>
+    <div className="heading">
+
+    <h2  >History 
+        
+        
+        </h2>
+
+        <div className='datepicker'>
+        <DatePicker
+           
+           selected={selectedDate}
+           onChange={date => setSelectedDate(date)}
+           dateFormat='dd/MM/yyyy'
+           maxDate={new Date()}
+           showYearDropdown
+           scrollableYearDropdown
+           
+           placeholderText='Select Date'
+           closeOnScroll={true}
+       />
+
+        </div>
+
+    </div>
+        
         <div className='items'>
             <div className='item'>
                 <h3>Name of transaction</h3>

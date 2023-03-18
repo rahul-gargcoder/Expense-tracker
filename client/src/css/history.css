@@ -14,10 +14,21 @@
     background: var(--col1);
     padding: 3px 20px ;
     font-size: 1.5rem;
-    width: 40%;
-    text-align: center;
+    width: 100%;
+    text-align:left;
     border-radius: 20px;
     margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hist-container .heading .datepicker input{
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
 }
 
 .hist-container .items{

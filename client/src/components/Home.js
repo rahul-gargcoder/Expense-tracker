@@ -10,13 +10,13 @@ import Stats from './Stats'
 function Home() {
   return (
     <div className='home-container'>
-        <Sidebar></Sidebar>
+        {/* <Sidebar></Sidebar>
 
-        <Show></Show>
+        <Show></Show> */}
 
         {/* <Show></Show> */}
         {/* <History></History> */}
-        <Stats></Stats>
+        {/* <Stats></Stats> */}
         
 
 

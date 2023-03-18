@@ -28,6 +28,8 @@ function Chart({ chartData }) {
                     fill: 'white'
                 }}
 
+                startAngle={90}
+      
 
                 radius={25}
                 labelPosition={105}
