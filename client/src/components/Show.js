@@ -2,6 +2,10 @@ import React from 'react'
 import '../css/show.css'
 
 function Show() {
+
+
+    
+
     return (
         <div className='show-container'>
             <h2 className='heading'>Expense Tracker</h2>
