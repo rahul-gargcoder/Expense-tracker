@@ -1,20 +1,14 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { PieChart } from 'react-minimal-pie-chart';
-import Chart from './Chart';
 import '../css/stats.css'
 
-function Stats() {
-    
-    let chartData = [
-        { title: 'Income', value: 1000, color: 'var(--col2)' },
-        { title: 'Expense', value: 1205, color: 'var(--col3)' },
-       
-    ]
+function Chart({ chartData }) {
+
 
     return (
         <div className='stats-container'>
 
-<PieChart
+            <PieChart
                 data={chartData}
 
                 label={
@@ -38,11 +32,9 @@ function Stats() {
                 radius={25}
                 labelPosition={105}
             />
-        
- 
         </div>
 
     )
 }
 
-export default Stats
+export default Chart

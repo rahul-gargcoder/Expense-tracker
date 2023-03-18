@@ -7,7 +7,6 @@
     background-repeat: no-repeat;
     background-position: 100% 100%;
     width: 80vw;
-
 }
 
 .show-container{
@@ -21,8 +20,7 @@
     /* justify-content: space-around; */
 }
 
-.show-container .heading{
-    
+.show-container .heading{ 
     background: var(--col1);
     padding: 3px 20px ;
     font-size: 1.5rem;

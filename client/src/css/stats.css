@@ -1,6 +1,7 @@
 .stats-container{
     /* border: 1px solid red; */
     width: 80vw;
+    
     min-width: 350px;
     background: black;
     margin: 0px auto;

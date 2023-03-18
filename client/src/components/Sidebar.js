@@ -13,7 +13,7 @@ function Sidebar() {
         </div>
         <hr style={{margin:'8px 20px 40px 20px',backgroundColor:'#3f3f3f',height:'0.5px',border:'none'}} />
         <div className='nav-list'>
-            <a href="">
+            <a href="/home">
                 <i class="bi bi-grid"></i>
                 <h3>Home</h3>
             </a>
