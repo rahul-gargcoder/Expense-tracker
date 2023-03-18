@@ -12,7 +12,7 @@ function Signup(){
     const password=document.getElementById('password').value;
     const confirmpassword=document.getElementById('confirmpassword').value;
     if(password!==confirmpassword){
-      swal('password is not matching')
+      swal('Password not matching','Password should match','warning')
       return;
     }
     else{
@@ -22,12 +22,26 @@ function Signup(){
         password:password,
         confirmpassword:confirmpassword
       }
-      // return navigate('/');
-      let result=await axios.post('http://localhost:5000/signup',data);
-      console.log('first');
-      // console.log(result)
-      if(result){
+      let result=await axios.post('http://localhost:5000/signup',data)
+      .catch((err)=>{
+        swal({
+          title: err.message,
+          icon: "error",
+        });
+      })
+
+      if(result.data.flag){
+        swal({
+          title:'Successfully registered',
+          icon: "success"
+        });
         navigate('/login')
+      }
+      else{
+        swal({
+          title:'User already exist',
+          icon: "error"
+        });
       }
     
     }
@@ -40,7 +54,7 @@ function Signup(){
             <hr/>
             <input type="text" placeholder="Enter your Name" id='username' required/>
             <input type="email" placeholder="Enter your e-mail" id='useremail' required/>
-            <input type="password" placeholder="Enter your password" id="password" required/>
+            <input type="password" placeholder="Enter your password" id="password" minLength={3} required/>
             <input type="password" placeholder="Enter password again" id="confirmpassword" required/>
             <hr/>
             <button type="submit" >Submit</button>
