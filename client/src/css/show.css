@@ -1,5 +1,18 @@
+.big{
+    display: flex;
+    position: relative;
+    /* border: 1px solid yellow; */
+    background: url(../assets/bg1.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    width: 80vw;
+
+}
+
 .show-container{
     /* border: 1px solid red; */
+    z-index: 2;
     width: 30vw;
     min-width: 350px;
     background: black;

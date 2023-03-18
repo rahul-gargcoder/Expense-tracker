@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/show.css'
+import bg from '../assets/bg1.svg'
 
 function Show() {
 
@@ -7,6 +8,7 @@ function Show() {
     
 
     return (
+        <div className='big'>
         <div className='show-container'>
             <h2 className='heading'>Expense Tracker</h2>
             <div className="curr-amount">
@@ -39,6 +41,7 @@ function Show() {
                 </button>
             </div>
 
+        </div>
         </div>
     )
 }
