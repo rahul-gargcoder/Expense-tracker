@@ -92,6 +92,9 @@ function Show() {
                 })
             })
             result=result.data.data
+            if(result==='no records'){
+                return;
+            }
             let inc=0;
             let exp=0;
             let bal=0;

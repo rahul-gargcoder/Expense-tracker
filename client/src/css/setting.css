@@ -1,48 +1,53 @@
-/* #changename{
-    margin: 10px 0px 5px 0px;
-    border: 0px;
-    border-radius: 20px;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    color: solid black;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 200;
+.set-container{
+    /* border: 1px solid red; */
+    width: 70vw;
+    min-width: 350px;
+    background: black;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
 }
-#submitbtn{
-    margin: 10px 0px 5px 0px;
-    border: 0px;
+
+.set-container .heading{
+    background: var(--col1);
+    padding: 3px 20px ;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align:left;
     border-radius: 20px;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    color: solid black;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 200;
 }
-#changepassword{
-    margin: 10px 0px 5px 0px;
-    border: 0px;
-    border-radius: 20px;
-    height: 50px;
-    width: 200px;
-    text-align: center;
-    color: solid black;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 200;
+
+.set-container .container{
+    /* border: 1px solid green; */
+    padding: 10px;
 }
-#confirmpassword{
-    margin: 10px 0px 5px 0px;
-    border: 0px;
-    border-radius: 20px;
-    height: 50px;
-    width: 200px;
+
+.set-container .container input{
+    width: 250px;
+    height: 40px;
+    margin: 8px 0px;
+    border-radius: 10px;
     text-align: center;
-    color: solid black;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 200;
-} */
+    outline: none;
+    border: none;
+}
+
+.set-container .container button{
+    font-family: 'Sono', sans-serif;
+    font-weight: 900;
+    min-width: fit-content;
+    padding: 0px 6px;
+    height: 40px;
+    margin: 8px 0px;
+    margin-left: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: var(--col1);
+    color: white;
+}
+
+.set-container .container button:hover{
+    background: #4f4f4f;
+}

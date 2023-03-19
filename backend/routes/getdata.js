@@ -9,7 +9,12 @@ getdata
 async function getvalues(req,res){
     try {
         const {id}=req.body;
-        const result=await userhistory.findOne({userid:id})
+        const result=await userhistory.findOne({userid:id});
+        if(!result){
+            return res.status(200).json({
+                data:'no records'
+            })
+        }
         res.status(200).json({
             data:result.history
         })
