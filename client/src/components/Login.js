@@ -5,6 +5,7 @@ import '../css/signup.css'
 import swal from 'sweetalert';
 import axios from 'axios'
 function Login(){
+    console.log(process.env.REACT_APP_SERVER_URL)
     const navigate=useNavigate();
     const Handlesubmit=async (e)=>{
         e.preventDefault();
