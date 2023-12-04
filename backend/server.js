@@ -1,5 +1,6 @@
 const express=require('express');
 const app=express();
+require('dotenv').config('./')
 const cors=require('cors');
 const loginroute=require('./routes/login');
 const signup=require('./routes/signup')
@@ -8,24 +9,26 @@ const gethistory = require('./routes/gethistory');
 const changename = require('./routes/changeusername');
 const changepassword = require('./routes/changepassword');
 const getname = require('./routes/getusername');
-const getdata = require('./routes/getdata');
+const {getdata} = require('./routes/getdata');
+const {gettransactions}=require('./routes/getdata');
+const deleteTransaction = require('./routes/deleteTransaction');
 require('./models/connection')
 app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:3000',
-    // origin:'http://localhost:3001',
-    // credentials:true, 
+    origin:'*'
 }))
-
-
+console.log(process.env);
 app.use('/login',loginroute)
 app.use('/signup',signup)
 app.use('/addtransaction',addtransaction)
 app.use('/gethistory',gethistory)
 app.use('/changename',changename)
 app.use('/changepassword',changepassword)
-app.use('/getname',getname)
+app.use('/getname',getname) 
 app.use('/getdata',getdata)
-app.listen(5000,()=>{
-    console.log('🎉🎉🎉 listening on 5000');
+app.post('/transactions',gettransactions);
+app.use('/deletetransaction',deleteTransaction)
+const PORT=process.env.PORT||5000
+app.listen(PORT,()=>{
+    console.log('🎉🎉🎉 listening on '+PORT);
 })

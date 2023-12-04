@@ -14,7 +14,7 @@ import '../css/sidebar.css'
     const navigate=useNavigate();
     useEffect(() => {
         const getresult=async ()=>{
-            const result=await axios.post('http://localhost:5000/getname',{
+            const result=await axios.post(`${process.env.REACT_APP_SERVER_URL}/getname`,{
             data:localStorage.getItem('userdata')
             }).catch((err)=>{
                 console.log(err);
@@ -45,6 +45,10 @@ import '../css/sidebar.css'
             <a href="/history">
                 <i class="bi bi-clock-history"></i>
                 <h3>History</h3>
+            </a>
+            <a href="/transactions">
+                <i class="bi bi-grid"></i>
+                <h3>Transactions</h3>
             </a>
             <a href="/stats">
                 <i class="bi bi-pie-chart-fill"></i>

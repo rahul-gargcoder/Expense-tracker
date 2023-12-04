@@ -3,64 +3,48 @@ import '../css/history.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios';
+import { DateTime } from 'luxon'
+import swal from 'sweetalert'
 function History() {
-
+    function convertTime(data) {
+        const s = DateTime.fromISO(data, { zone: 'Asia/Kolkata' }).toLocaleString(DateTime.DATETIME_MED);
+        return s;
+    }
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [data, setData] = useState([]);
+    const [isChanged,setChanged]=useState(false);
+    const deleteItem = async (id) => {
+        const response=await axios.post(`${process.env.REACT_APP_SERVER_URL}/deletetransaction`,{
+            userid: localStorage.getItem('userdata'),
+            tid:id
+        })
+        setChanged(!isChanged)
 
-
+    }
     useEffect(() => {
-        var result=[];
-        var month=selectedDate.getMonth()+1;
-        let dated=selectedDate.getDate()+'-'+month+'-'+selectedDate.getFullYear();
-        const axioscall=async ()=>{
-            result=await axios.post('http://localhost:5000/gethistory',{
-                userid:localStorage.getItem('userdata'),
-                date:selectedDate.getDate()+'-'+month+'-'+selectedDate.getFullYear()
+        console.log(selectedDate)
+        var result = [];
+        var month = selectedDate.getMonth() + 1;
+        let dated = selectedDate.getDate() + '-' + month + '-' + selectedDate.getFullYear();
+        const axioscall = async () => {
+            result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/gethistory`, {
+                userid: localStorage.getItem('userdata'),
+                date: selectedDate.getDate() + '-' + month + '-' + selectedDate.getFullYear(),
+                newdate: selectedDate
             })
-            result=result.data.data;
+            result = result.data.data;
             console.log(result);
-        let container = document.getElementsByClassName('items')[0];
-        container.innerHTML=''
-        if(result==='no records'){
-            container.innerHTML +=`
-            <div class='item'>
-            <h2>No Transactions</h2>
-            </div>`
-            return;
-        }
-        result.reverse();
-        for(let i =0 ; i<result.length;i++){
-
-            container.innerHTML +=`
-            <div class='item'>
-                <h3>${result[i].tname}</h3>
-                <h2> Rs <span>${result[i].amount*1}</span></h2>
-                <h4>${dated}</h4>
-            </div>
-        `
-        }
-
-        
-
-        let itemArr = Array.from(document.getElementsByClassName('item'));
-
-            itemArr.forEach((ele) => {
-    
-                let val = ele.getElementsByTagName('span')[0];
-                if (val.innerHTML * 1 < 0) {
-                    ele.style.color = 'var(--col3)'
-                }
-                if (val.innerHTML * 1 > 0) {
-                    ele.style.color = 'var(--col2)'
-                }
-            })
+            result.map((data) => (
+                data.createdAt = convertTime(data.createdAt)
+            ))
+            setData(result)
         }
 
         axioscall();
-        
-       
 
-    }, [selectedDate])
+
+
+    }, [selectedDate,isChanged])
 
     return (
         <div className='hist-container'>
@@ -85,12 +69,15 @@ function History() {
             </div>
 
             <div className='items'>
-                <div className='item'>
-                    <h3>Name of transaction</h3>
-                    <h2> Rs <span>-200</span></h2>
-                    <h4>jan 12 2021</h4>
-                </div>
-                
+                {data.length==0?<><h1>No transactions</h1></>:data.map((data) => (
+                    <div className='item' style={{color:data.type?'#4CAF50':'#FF5252 '}}>
+                        <h3>{data.description}</h3>
+                        {data.isAdded?<p>✅</p>:<p>❌</p>}
+                        <h2> Rs <span>{data.amount * 1}</span></h2>
+                        <h4>{data.createdAt}</h4>
+                        <i class="bi bi-trash3-fill" value={data._id} onClick={()=>deleteItem(data._id)}></i>
+                    </div>
+                ))}
             </div>
         </div>
     )

@@ -55,24 +55,34 @@
     justify-content: space-between;
     align-items: center;
     margin:0 20px;
-    padding: 2px 6px;
+    padding: 4px 10px;
     width: 100%;
-    height: 50px;
+    height: 60px;
+    min-height: 60px;
     border-radius: 10px;
     background-color: white;
     color: black;
+    overflow: hidden;
 }
 
 .hist-container .items .item h3{
-    width: 50%;
+    width: 40%;
     padding-left: 10px;
     font-size: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:auto;
+    white-space: normal;
+    max-height: 50px;
+    overflow-y: auto;
+    
 
 }
-
+.hist-container .items .item h3::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  .hist-container .items .item h3::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 .hist-container .items .item h4{
     width: 20%;
 }

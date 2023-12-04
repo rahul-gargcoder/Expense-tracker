@@ -11,6 +11,9 @@ import Show from './components/Show';
 import History from './components/History';
 import Stats from './components/Stats';
 import Settings from './components/Settings'
+import Transactions from './components/Transactions'
+import Notfound from './components/Notfound';
+import Spinner from './components/loader';
 function App() {
   return (
     <div className='app-container'>
@@ -19,11 +22,13 @@ function App() {
     
     <Routes>
     {/* <Protectauth> */}
+    <Route path='/s' element={<Spinner/>}/>
     <Route path='/' element={<Protectroute><Layout/></Protectroute>}>
       <Route index element={<Show/>}/>
       <Route path='/history' element={<History/>}/>
       <Route path='/stats' element={<Stats/>}/>    
       <Route path='/settings' element={<Settings/>}/>    
+      <Route path='/transactions' element={<Transactions/>}/>    
     </Route>
     {/* </Protectauth> */}
     
@@ -31,6 +36,7 @@ function App() {
     
     <Route path='/signup' element={<Protectauth><Signup/></Protectauth>}/>
     <Route path='/login' element={<Protectauth><Login/></Protectauth>}/>
+    <Route path="*" element={<Notfound/>}/>
     {/* <Route path='/login' element={<Login/>}/> */}
    </Routes>
    </BrowserRouter>

@@ -10,7 +10,7 @@ function Login(){
         e.preventDefault();
         const email = document.querySelector('#email').value;
         const password=document.querySelector('#password').value;
-        const res=await axios.post('http://localhost:5000/login',{
+        const res=await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,{
             'email':email,
             'password':password
         }).catch((err)=>{

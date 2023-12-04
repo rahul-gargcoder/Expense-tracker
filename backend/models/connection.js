@@ -1,9 +1,7 @@
 const mongoose =require('mongoose');
 const { userhistoryschema } = require('./userhistory');
 const {userschema}=require('./userschema')
-// mongodb+srv://rahulgarg:expensetracker@cluster0.isrlz9a.mongodb.net/?retryWrites=true&w=majority
-// mongodb://localhost:27017/expensetracker
-mongoose.connect('mongodb://localhost:27017/expensetracker')
+mongoose.connect(`${process.env.MONGO_URL}`)
 .then(function(db){
   console.log("db is connected");
 })
@@ -12,5 +10,4 @@ mongoose.connect('mongodb://localhost:27017/expensetracker')
 })
 
 const usermodel=mongoose.model('usermodel',userschema);
-const userhistory=mongoose.model('userhistory',userhistoryschema);
-module.exports={usermodel,userhistory}
+module.exports={usermodel}
